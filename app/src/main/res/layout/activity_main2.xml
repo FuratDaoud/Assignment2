@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/download3">
+
+    <EditText
+        android:id="@+id/edtTxt"
+        style="@style/edtText2"
+        android:hint="minutes"
+        android:inputType="number" />
+
+    <Button
+        android:id="@+id/button_set"
+        style="@style/buttonStyle2"
+        android:layout_marginTop="100dp"
+        android:layout_toRightOf="@+id/edtTxt"
+        android:text="Set" />
+
+    <TextView
+        android:id="@+id/txtview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/edtTxt"
+        android:layout_marginLeft="20dp"
+        android:text="00:00"
+        android:textColor="@android:color/primary_text_light"
+        android:textSize="55dp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/btnstart"
+        style="@style/buttonStyle2"
+        android:layout_below="@+id/txtview"
+        android:text="start"
+        android:onClick="onClickStart"/>
+
+
+    <Button
+        android:id="@+id/btnstop"
+        style="@style/buttonStyle2"
+        android:layout_below="@+id/txtview"
+        android:layout_toRightOf="@+id/btnstart"
+        android:text="Stop"
+        android:visibility="invisible"
+        tools:visibility="visible"
+        android:onClick="onClickStop"/>
+
+</RelativeLayout>

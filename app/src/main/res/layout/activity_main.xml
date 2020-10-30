@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/name"
+        android:text="Enter Your Name :"
+        style="@style/textStyle"
+      />
+    <EditText
+        android:id="@+id/aa"
+        android:layout_toRightOf="@+id/name"
+        android:hint=" name "
+        style="@style/editTextStyle"
+        android:inputType="text"/>
+
+    <TextView
+        android:id="@+id/b"
+        android:layout_below="@id/name"
+        android:text="Enter Your Height :"
+        style="@style/textStyle"
+        />
+    <EditText
+        android:id="@+id/heighid"
+        android:layout_toRightOf="@+id/b"
+        android:layout_below="@id/aa"
+        android:hint=" height "
+        style="@style/editTextStyle"
+        android:inputType="number"/>
+
+    <TextView
+        android:id="@+id/c"
+        android:layout_below="@id/b"
+        android:text="Enter Your Weight :"
+        style="@style/textStyle"
+        />
+    <EditText
+        android:id="@+id/weighid"
+        android:layout_toRightOf="@+id/c"
+        android:layout_below="@id/heighid"
+        android:hint=" weight "
+        style="@style/editTextStyle"
+        android:inputType="number"/>
+
+
+    <TextView
+        android:id="@+id/d"
+        android:layout_below="@id/c"
+        android:text="Gender :"
+        style="@style/textStyle"
+        />
+
+    <Spinner
+
+        android:layout_toRightOf="@+id/d"
+        android:layout_below="@id/weighid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/generspinner"
+        android:layout_marginBottom="16dp"
+        android:layout_marginTop="25dp"/>
+
+    <Button
+        android:id="@+id/e"
+        android:layout_below="@id/d"
+        android:text="Save"
+        style="@style/buttonStyle"
+        android:background="@color/colorPrimaryDark"
+        android:onClick="btnsave"/>
+    <Button
+        android:id="@+id/f"
+        android:layout_below="@id/generspinner"
+        android:layout_toRightOf="@+id/e"
+        android:text="Calculate BMI"
+        style="@style/buttonStyle"
+        android:background="@color/colorPrimaryDark"
+        android:onClick="calculatebmi" />
+    <TextView
+
+        android:id="@+id/txtview"
+        android:layout_below="@id/e"
+        android:text="BMI is :"
+        style="@style/textStyle" />
+
+    <TextView
+        android:id="@+id/edtTxt"
+        android:layout_toRightOf="@+id/txtview"
+        android:layout_below="@id/f"
+        style="@style/editTextStyle"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/rectangle_drawable"/>
+
+
+    <ImageView
+        android:id="@+id/img"
+        android:layout_below="@id/edtTxt"
+        android:layout_width="fill_parent"
+        android:layout_height="200dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/download"
+        android:layout_marginTop="20dp"/>
+    <Button
+        android:id="@+id/btn"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Go To Set Timer -->"
+        android:textSize="15dp"
+        android:textColor="@android:color/background_light"
+        android:background="#05125C"
+        android:onClick="btnonclick" />
+
+
+
+</RelativeLayout>
