@@ -8,79 +8,84 @@
 
     <TextView
         android:id="@+id/name"
-        android:text="Enter Your Name :"
-        style="@style/textStyle"
-      />
+        android:text="Enter Your Name  :"
+        style="@style/textStyle" />
+
     <EditText
         android:id="@+id/aa"
         android:layout_toRightOf="@+id/name"
         android:hint=" name "
-        style="@style/editTextStyle"
-        android:inputType="text"/>
+        android:inputType="text"
+        style="@style/editTextStyle" />
 
     <TextView
         android:id="@+id/b"
         android:layout_below="@id/name"
         android:text="Enter Your Height :"
-        style="@style/textStyle"
-        />
+        style="@style/textStyle" />
+
     <EditText
         android:id="@+id/heighid"
-        android:layout_toRightOf="@+id/b"
         android:layout_below="@id/aa"
+        android:layout_toRightOf="@+id/b"
         android:hint=" height "
-        style="@style/editTextStyle"
-        android:inputType="number"/>
+        android:inputType="number"
+        style="@style/editTextStyle" />
 
     <TextView
         android:id="@+id/c"
         android:layout_below="@id/b"
         android:text="Enter Your Weight :"
-        style="@style/textStyle"
-        />
+        style="@style/textStyle" />
+
     <EditText
         android:id="@+id/weighid"
-        android:layout_toRightOf="@+id/c"
         android:layout_below="@id/heighid"
+        android:layout_toRightOf="@+id/c"
         android:hint=" weight "
-        style="@style/editTextStyle"
-        android:inputType="number"/>
-
+        android:inputType="number"
+        style="@style/editTextStyle" />
 
     <TextView
         android:id="@+id/d"
         android:layout_below="@id/c"
         android:text="Gender :"
-        style="@style/textStyle"
-        />
+        style="@style/textStyle" />
 
     <Spinner
-
-        android:layout_toRightOf="@+id/d"
-        android:layout_below="@id/weighid"
+        android:id="@+id/generspinner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/generspinner"
+        android:layout_below="@id/weighid"
+        android:layout_marginTop="25dp"
         android:layout_marginBottom="16dp"
-        android:layout_marginTop="25dp"/>
+        android:layout_toRightOf="@+id/d" />
+
+    <CheckBox
+        android:id="@+id/chk"
+        android:layout_below="@id/weighid"
+        android:layout_toRightOf="@id/generspinner"
+        android:text="Remmber Me"
+        style="@style/checkboxstyle1"/>
 
     <Button
         android:id="@+id/e"
         android:layout_below="@id/d"
-        android:text="Save"
-        style="@style/buttonStyle"
         android:background="@color/colorPrimaryDark"
-        android:onClick="btnsave"/>
+        android:onClick="btnsave"
+        android:text="Save"
+        style="@style/buttonStyle" />
+
     <Button
         android:id="@+id/f"
         android:layout_below="@id/generspinner"
         android:layout_toRightOf="@+id/e"
-        android:text="Calculate BMI"
-        style="@style/buttonStyle"
         android:background="@color/colorPrimaryDark"
-        android:onClick="calculatebmi" />
-    <TextView
+        android:onClick="calculatebmi"
+        android:text="Calculate BMI"
+        style="@style/buttonStyle" />
 
+    <TextView
         android:id="@+id/txtview"
         android:layout_below="@id/e"
         android:text="BMI is :"
@@ -88,33 +93,31 @@
 
     <TextView
         android:id="@+id/edtTxt"
-        android:layout_toRightOf="@+id/txtview"
         android:layout_below="@id/f"
-        style="@style/editTextStyle"
         android:layout_marginTop="10dp"
-        android:background="@drawable/rectangle_drawable"/>
-
+        android:layout_toRightOf="@+id/txtview"
+        android:background="@drawable/rectangle_drawable"
+        style="@style/editTextStyle" />
 
     <ImageView
         android:id="@+id/img"
-        android:layout_below="@id/edtTxt"
         android:layout_width="fill_parent"
         android:layout_height="200dp"
+        android:layout_below="@id/edtTxt"
+        android:layout_marginTop="15dp"
         android:scaleType="centerCrop"
-        android:src="@drawable/download"
-        android:layout_marginTop="20dp"/>
+        android:src="@drawable/download" />
+
     <Button
         android:id="@+id/btn"
-        android:layout_alignParentRight="true"
-        android:layout_below="@id/img"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Go To Set Timer -->"
-        android:textSize="15dp"
-        android:textColor="@android:color/background_light"
+        android:layout_below="@id/img"
+        android:layout_alignParentRight="true"
         android:background="#05125C"
-        android:onClick="btnonclick" />
-
-
+        android:onClick="btnonclick"
+        android:text="Go To Set Timer -->"
+        android:textColor="@android:color/background_light"
+        android:textSize="15dp" />
 
 </RelativeLayout>

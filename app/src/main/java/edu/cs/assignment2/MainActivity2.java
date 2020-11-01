@@ -10,9 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import java.util.Locale;
 
 public class MainActivity2 extends AppCompatActivity {
@@ -21,13 +19,15 @@ public class MainActivity2 extends AppCompatActivity {
     private Button btnset;
     private Button btnPause;
     private Button btnstop;
+    private Button btnstart;
     private CountDownTimer countTime;
     private boolean timeRunning;
     private long startTime;
     private long leftTime;
     private long endTime;
+
     @Override
-    protected void onCreate (Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
         Intent intent = getIntent();
@@ -37,6 +37,7 @@ public class MainActivity2 extends AppCompatActivity {
         btnset = findViewById(R.id.button_set);
         btnPause = findViewById(R.id.btnstart);
         btnstop = findViewById(R.id.btnstop);
+        btnstart = findViewById(R.id.btnstart);
         btnset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -52,30 +53,27 @@ public class MainActivity2 extends AppCompatActivity {
                 }
                 setTime(millisInput);
                 edtText.setText("");
+                btnPause.setEnabled(true);
+
             }
         });
-        btnPause.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (timeRunning) {
-                    pauseTimer();
-                } else {
-                    startTimer();
-                }
-            }
-        });
+
         btnstop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 resetTimer();
+
             }
         });
+
     }
+
     private void setTime(long milliseconds) {
         startTime = milliseconds;
         resetTimer();
         closeKeyboard();
     }
+
     private void startTimer() {
         endTime = System.currentTimeMillis() + leftTime;
         countTime = new CountDownTimer(leftTime, 1000) {
@@ -84,25 +82,26 @@ public class MainActivity2 extends AppCompatActivity {
                 leftTime = millisUntilFinished;
                 updateCountDownText();
             }
+
             @Override
             public void onFinish() {
                 timeRunning = false;
-                updateWatchInterface();
             }
         }.start();
         timeRunning = true;
-        updateWatchInterface();
     }
+
     private void pauseTimer() {
         countTime.cancel();
         timeRunning = false;
-        updateWatchInterface();
+        //  updateWatchInterface();
     }
+
     private void resetTimer() {
         leftTime = startTime;
         updateCountDownText();
-        updateWatchInterface();
     }
+
     private void updateCountDownText() {
         int hours = (int) (leftTime / 1000) / 3600;
         int minutes = (int) ((leftTime / 1000) % 3600) / 60;
@@ -115,28 +114,8 @@ public class MainActivity2 extends AppCompatActivity {
         }
         txtView.setText(timeLeftFormatted);
     }
-    private void updateWatchInterface() {
-        if (timeRunning) {
-            edtText.setVisibility(View.VISIBLE);
-            btnPause.setVisibility(View.VISIBLE);
-            btnstop.setVisibility(View.VISIBLE);
-            btnPause.setText("Pause");
-        } else {
-            edtText.setVisibility(View.VISIBLE);
-            btnPause.setVisibility(View.VISIBLE);
-            btnPause.setText("Start");
-            if (leftTime < 1000) {
-                btnPause.setVisibility(View.INVISIBLE);
-            } else {
-                btnPause.setVisibility(View.VISIBLE);
-            }
-            if (leftTime < startTime) {
-                btnstop.setVisibility(View.VISIBLE);
-            } else {
-                btnstop.setVisibility(View.INVISIBLE);
-            }
-        }
-    }
+
+
     private void closeKeyboard() {
         View view = this.getCurrentFocus();
         if (view != null) {
@@ -144,6 +123,8 @@ public class MainActivity2 extends AppCompatActivity {
             i.hideSoftInputFromWindow(view.getWindowToken(), 0);
         }
     }
+
+
     @Override
     protected void onStop() {
         super.onStop();
@@ -156,8 +137,11 @@ public class MainActivity2 extends AppCompatActivity {
         editor.apply();
         if (countTime != null) {
             countTime.cancel();
+
         }
     }
+
+
     @Override
     protected void onStart() {
         super.onStart();
@@ -166,7 +150,6 @@ public class MainActivity2 extends AppCompatActivity {
         leftTime = prefs.getLong("millisLeft", startTime);
         timeRunning = prefs.getBoolean("timerRunning", false);
         updateCountDownText();
-        updateWatchInterface();
         if (timeRunning) {
             endTime = prefs.getLong("endTime", 0);
             leftTime = endTime - System.currentTimeMillis();
@@ -174,10 +157,28 @@ public class MainActivity2 extends AppCompatActivity {
                 leftTime = 0;
                 timeRunning = false;
                 updateCountDownText();
-                updateWatchInterface();
             } else {
                 startTimer();
             }
         }
+
     }
+
+    public void onClickStart(View view) {
+        startTimer();
+
+        btnstop.setEnabled(true);
+        btnstart.setEnabled(true);
+        btnPause.setEnabled(true);
+
+    }
+
+    public void onClickPause(View view) {
+        btnstop.setEnabled(true);
+        btnstart.setEnabled(false);
+        btnPause.setEnabled(true);
+        pauseTimer();
+
+    }
+
 }
