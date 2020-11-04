@@ -55,9 +55,9 @@ public class MainActivity extends AppCompatActivity {
         ArrayList<String> arrayList = new ArrayList<>();
         arrayList.add("Male");
         arrayList.add("Female");
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, arrayList);
-        arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(arrayAdapter);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, arrayList);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -70,13 +70,10 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-
     public void btnonclick(View view) {
         Intent intent = new Intent(this, MainActivity2.class);
         startActivity(intent);
-
     }
-
 
     public void calculatebmi(View v) {
         String str1 = edtweight.getText().toString();
@@ -152,9 +149,8 @@ public class MainActivity extends AppCompatActivity {
             edtname.setText(name);
             edtheight.setText(height);
             edtweight.setText(weight);
-            //  spinner.setSelection(gender);
+            // spinner.getTe(Integer.parseInt(gender));
             chk.setChecked(true);
-
         }
     }
 

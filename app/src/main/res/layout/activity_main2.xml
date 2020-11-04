@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:background="@drawable/download3">
 
     <EditText
@@ -36,17 +36,9 @@
         android:text="start" />
 
     <Button
-        android:id="@+id/btnpause"
-        style="@style/buttonStyle2"
-        android:layout_below="@+id/btnstart"
-        android:onClick="onClickPause"
-        android:text="Pause" />
-
-
-    <Button
         android:id="@+id/btnstop"
         style="@style/buttonStyle2"
-        android:layout_below="@+id/btnpause"
+        android:layout_below="@+id/btnstart"
         android:onClick="onClickpause"
         android:text=" Stop " />
 
