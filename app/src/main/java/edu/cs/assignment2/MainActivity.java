@@ -149,7 +149,7 @@ public class MainActivity extends AppCompatActivity {
             edtname.setText(name);
             edtheight.setText(height);
             edtweight.setText(weight);
-            // spinner.getTe(Integer.parseInt(gender));
+            spinner.setSelected(true);
             chk.setChecked(true);
         }
     }
@@ -158,7 +158,9 @@ public class MainActivity extends AppCompatActivity {
         String name = edtname.getText().toString();
         String height = edtheight.getText().toString();
         String weight = edtweight.getText().toString();
-        String gender = prefs.getString(GENDER, "");
+        //String gender = prefs.getString(GENDER, "");
+        String gender = prefs.getString(String.valueOf(spinner),"");
+
 
         if (chk.isChecked()) {
             editor.putString(NAME, name);

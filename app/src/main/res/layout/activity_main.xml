@@ -98,26 +98,26 @@
         android:layout_toRightOf="@+id/txtview"
         android:background="@drawable/rectangle_drawable"
         style="@style/editTextStyle" />
-
-    <ImageView
-        android:id="@+id/img"
-        android:layout_width="fill_parent"
-        android:layout_height="200dp"
-        android:layout_below="@id/edtTxt"
-        android:layout_marginTop="15dp"
-        android:scaleType="centerCrop"
-        android:src="@drawable/download" />
-
     <Button
         android:id="@+id/btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/img"
+        android:layout_below="@id/edtTxt"
         android:layout_alignParentRight="true"
         android:background="#05125C"
         android:onClick="btnonclick"
         android:text="Go To Set Timer -->"
         android:textColor="@android:color/background_light"
         android:textSize="15dp" />
+
+
+    <ImageView
+        android:id="@+id/img"
+        android:layout_width="fill_parent"
+        android:layout_height="200dp"
+        android:layout_below="@id/btn"
+        android:scaleType="centerCrop"
+        android:src="@drawable/download" />
+
 
 </RelativeLayout>
