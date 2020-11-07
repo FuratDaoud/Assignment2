@@ -53,8 +53,8 @@ public class MainActivity extends AppCompatActivity {
 
         Spinner spinner = findViewById(R.id.generspinner);
         ArrayList<String> arrayList = new ArrayList<>();
-        arrayList.add("Male");
         arrayList.add("Female");
+        arrayList.add("Male");
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, arrayList);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
